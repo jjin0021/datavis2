@@ -100,7 +100,7 @@
         "input": "select",
         "options": [null, "Postgraduate", "Undergraduate"],
         "labels": ["Show All", "Postgraduate", "Undergraduate"],
-        "name": "Select Status: "
+        "name": "Select Level: "
       }
     }
   ]
