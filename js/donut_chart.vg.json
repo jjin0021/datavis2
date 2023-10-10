@@ -1,0 +1,399 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text":"Percentage of Students Over Time", "fontSize": 20, "subtitle": "by Gender", "subtitleFontSize": 18, "anchor": "middle"},
+  "data": {"url": "https://raw.githubusercontent.com/jjin0021/datavis2/main/data/aus_pub_uni.csv"},
+  "spacing": 9,
+  "transform": [
+    {"filter": "Citizenship_selection == null || datum.Citizenship == Citizenship_selection"},
+    {
+      "aggregate": [{
+        "op": "sum",
+        "field": "Count",
+        "as": "Total"
+      }],
+    "groupby": ["Gender", "Year"]
+    }
+  ],
+  "hconcat": [
+    {
+      "width": 73,
+      "height": 73,
+      "title": {"text": " ", "fontSize": 25},
+      "transform": [
+        {"filter": "datum.Year == 2017"},
+        {"joinaggregate": [{
+          "op": "sum",
+          "field": "Total",
+          "as": "Grand_Total"
+          }]
+        },
+        {
+          "calculate": "datum.Total / datum.Grand_Total", "as": "Percent_Total"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {"type": "arc", "innerRadius": 40, "radius": 73},
+          "encoding": {
+            "theta": {"field": "Total", "type": "quantitative", "sort": "descending"},
+            "color": {
+              "field": "Gender", 
+              "scale": {"domain": ["Female", "Male"], "range": ["#e41a1c", "#377eb8"]}
+            },
+            "tooltip": [
+              {"field": "Year"},
+              {"field": "Gender"},
+              {"field": "Total", "format": ","}
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text", 
+            "fontWeight": "bold",
+            "fontSize": 18
+          },
+          "encoding": {
+            "text": {"field": "Year"}
+          }
+        },
+        {
+          "transform": [
+            {"filter": {"field": "Gender", "equal": "Female"}}
+          ],
+          "mark": {
+            "type": "text", 
+            "dx": -57,
+            "color": "white",
+            "fontWeight": "bold",
+            "fontSize": 14
+          },
+          "encoding": {
+            "text": {"field": "Percent_Total", "format": ".0%"}
+          }
+        },
+        {
+          "transform": [
+            {"filter": {"field": "Gender", "equal": "Male"}}
+          ],
+          "mark": {
+            "type": "text", 
+            "dx": 57,
+            "color": "white",
+            "fontWeight": "bold",
+            "fontSize": 14
+          },
+          "encoding": {
+            "text": {"field": "Percent_Total", "format": ".0%"}
+          }
+        }
+      ]
+    },
+    {
+      "width": 73,
+      "height": 73,
+      "transform": [
+        {"filter": "datum.Year == 2018"},
+        {"joinaggregate": [{
+          "op": "sum",
+          "field": "Total",
+          "as": "Grand_Total"
+          }]
+        },
+        {
+          "calculate": "datum.Total / datum.Grand_Total", "as": "Percent_Total"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {"type": "arc", "innerRadius": 40, "radius": 73},
+          "encoding": {
+            "theta": {"field": "Total", "type": "quantitative", "sort": "descending"},
+            "color": {
+              "field": "Gender", 
+              "scale": {"domain": ["Female", "Male"], "range": ["#e41a1c", "#377eb8"]}
+            },
+            "tooltip": [
+              {"field": "Year"},
+              {"field": "Gender"},
+              {"field": "Total", "format": ","}
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text", 
+            "fontWeight": "bold",
+            "fontSize": 18
+          },
+          "encoding": {
+            "text": {"field": "Year"}
+          }
+        },
+        {
+          "transform": [
+            {"filter": {"field": "Gender", "equal": "Female"}}
+          ],
+          "mark": {
+            "type": "text", 
+            "dx": -57,
+            "color": "white",
+            "fontWeight": "bold",
+            "fontSize": 14
+          },
+          "encoding": {
+            "text": {"field": "Percent_Total", "format": ".0%"}
+          }
+        },
+        {
+          "transform": [
+            {"filter": {"field": "Gender", "equal": "Male"}}
+          ],
+          "mark": {
+            "type": "text", 
+            "dx": 57,
+            "color": "white",
+            "fontWeight": "bold",
+            "fontSize": 14
+          },
+          "encoding": {
+            "text": {"field": "Percent_Total", "format": ".0%"}
+          }
+        }
+      ]
+    },
+    {
+      "width": 73,
+      "height": 73,
+      "transform": [
+        {"filter": "datum.Year == 2019"},
+        {"joinaggregate": [{
+          "op": "sum",
+          "field": "Total",
+          "as": "Grand_Total"
+          }]
+        },
+        {
+          "calculate": "datum.Total / datum.Grand_Total", "as": "Percent_Total"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {"type": "arc", "innerRadius": 40, "radius": 73},
+          "encoding": {
+            "theta": {"field": "Total", "type": "quantitative", "sort": "descending"},
+            "color": {
+              "field": "Gender", 
+              "scale": {"domain": ["Female", "Male"], "range": ["#e41a1c", "#377eb8"]}
+            },
+            "tooltip": [
+              {"field": "Year"},
+              {"field": "Gender"},
+              {"field": "Total", "format": ","}
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text", 
+            "fontWeight": "bold",
+            "fontSize": 18
+          },
+          "encoding": {
+            "text": {"field": "Year"}
+          }
+        },
+        {
+          "transform": [
+            {"filter": {"field": "Gender", "equal": "Female"}}
+          ],
+          "mark": {
+            "type": "text", 
+            "dx": -57,
+            "color": "white",
+            "fontWeight": "bold",
+            "fontSize": 14
+          },
+          "encoding": {
+            "text": {"field": "Percent_Total", "format": ".0%"}
+          }
+        },
+        {
+          "transform": [
+            {"filter": {"field": "Gender", "equal": "Male"}}
+          ],
+          "mark": {
+            "type": "text", 
+            "dx": 57,
+            "color": "white",
+            "fontWeight": "bold",
+            "fontSize": 14
+          },
+          "encoding": {
+            "text": {"field": "Percent_Total", "format": ".0%"}
+          }
+        }
+      ]
+    },
+    {
+      "width": 73,
+      "height": 73,
+      "transform": [
+        {"filter": "datum.Year == 2020"},
+        {"joinaggregate": [{
+          "op": "sum",
+          "field": "Total",
+          "as": "Grand_Total"
+          }]
+        },
+        {
+          "calculate": "datum.Total / datum.Grand_Total", "as": "Percent_Total"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {"type": "arc", "innerRadius": 40, "radius": 73},
+          "encoding": {
+            "theta": {"field": "Total", "type": "quantitative", "sort": "descending"},
+            "color": {
+              "field": "Gender", 
+              "scale": {"domain": ["Female", "Male"], "range": ["#e41a1c", "#377eb8"]}
+            },
+            "tooltip": [
+              {"field": "Year"},
+              {"field": "Gender"},
+              {"field": "Total", "format": ","}
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text", 
+            "fontWeight": "bold",
+            "fontSize": 18
+          },
+          "encoding": {
+            "text": {"field": "Year"}
+          }
+        },
+        {
+          "transform": [
+            {"filter": {"field": "Gender", "equal": "Female"}}
+          ],
+          "mark": {
+            "type": "text", 
+            "dx": -57,
+            "color": "white",
+            "fontWeight": "bold",
+            "fontSize": 14
+          },
+          "encoding": {
+            "text": {"field": "Percent_Total", "format": ".0%"}
+          }
+        },
+        {
+          "transform": [
+            {"filter": {"field": "Gender", "equal": "Male"}}
+          ],
+          "mark": {
+            "type": "text", 
+            "dx": 57,
+            "color": "white",
+            "fontWeight": "bold",
+            "fontSize": 14
+          },
+          "encoding": {
+            "text": {"field": "Percent_Total", "format": ".0%"}
+          }
+        }
+      ]
+    },
+    {
+      "width": 73,
+      "height": 73,
+      "transform": [
+        {"filter": "datum.Year == 2021"},
+        {"joinaggregate": [{
+          "op": "sum",
+          "field": "Total",
+          "as": "Grand_Total"
+          }]
+        },
+        {
+          "calculate": "datum.Total / datum.Grand_Total", "as": "Percent_Total"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {"type": "arc", "innerRadius": 40, "radius": 73},
+          "encoding": {
+            "theta": {"field": "Total", "type": "quantitative", "sort": "descending"},
+            "color": {
+              "field": "Gender", 
+              "scale": {"domain": ["Female", "Male"], "range": ["#e41a1c", "#377eb8"]}
+            },
+            "tooltip": [
+              {"field": "Year"},
+              {"field": "Gender"},
+              {"field": "Total", "format": ","}
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text", 
+            "fontWeight": "bold",
+            "fontSize": 18
+          },
+          "encoding": {
+            "text": {"field": "Year"}
+          }
+        },
+        {
+          "transform": [
+            {"filter": {"field": "Gender", "equal": "Female"}}
+          ],
+          "mark": {
+            "type": "text", 
+            "dx": -57,
+            "color": "white",
+            "fontWeight": "bold",
+            "fontSize": 14
+          },
+          "encoding": {
+            "text": {"field": "Percent_Total", "format": ".0%"}
+          }
+        },
+        {
+          "transform": [
+            {"filter": {"field": "Gender", "equal": "Male"}}
+          ],
+          "mark": {
+            "type": "text", 
+            "dx": 57,
+            "color": "white",
+            "fontWeight": "bold",
+            "fontSize": 14
+          },
+          "encoding": {
+            "text": {"field": "Percent_Total", "format": ".0%"}
+          }
+        }
+      ]
+    }
+  ],
+  "params": [
+    {
+      "name": "Citizenship_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "Domestic", "International"],
+        "labels": ["Show All", "Domestic", "International"],
+        "name": "Select Citizenship: "
+      }
+    }
+  ],
+  "config": {
+    "legend": {"orient": "none", "direction": "horizontal", "legendX": 258, "legendY": 130, "symbolSize": 200, "labelFontSize": 11, "titleOrient": "left", "titleFontSize": 12}
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "title": {"text":"Number of Students per State", "fontSize": 20, "subtitle": "by Citizenship", "subtitleFontSize": 18},
+  "projection": {"type": "mercator"},
+  "view": {"stroke": "transparent"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jjin0021/datavis2/main/js/ne_50m.topojson",
+        "format": {"type": "topojson", "feature": "ne_50m_graticules_10"}
+      },
+      "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/jjin0021/datavis2/main/js/ne_50m.topojson",
+        "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
+      },
+      "mark" : {"type": "geoshape", "fill": "darkgray", "stroke": "white"}
+    },
+    {
+      "data": {"url": "https://raw.githubusercontent.com/jjin0021/datavis2/main/data/aus_pub_uni.csv"},
+      "transform": [
+        {"filter": "datum.Year == Year"}
+      ],
+      "mark": {"type": "circle"},
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "size" : {
+          "aggregate": "sum",
+          "field": "Count",
+          "type": "quantitative",
+          "title": "Number of Students",
+          "scale": {
+            "domain": [1000, 300000],
+            "range": [1, 3000]
+          },
+          "legend": {"orient": "none", "direction": "vertical", "legendX": 50, "legendY": 290, "format": "s", "labelFontSize": 11, 
+            "columns": 3, "columnPadding": 3, "rowPadding": 0, "clipHeight": 45,
+            "titleFontSize": 12, "titleOrient": "bottom", "titlePadding": 0, "titleAnchor": "middle"}
+        },
+        "color": {
+          "field": "Citizenship",
+          "type": "nominal",
+          "scale": {"domain": ["Domestic", "International"], "range": ["#35155d", "#b3541e"]},
+          "legend": {"orient": "none", "legendX": 410, "legendY": 30, "symbolSize": 200, "labelFontSize": 11, "titleFontSize": 12}
+        },
+        "opacity": {"value": 0.9},
+        "tooltip": [
+          {"field": "State"},
+          {"field": "Year"},
+          {"field": "Citizenship"},
+          {"aggregate": "sum", 
+            "field": "Count", 
+            "type": "quantitative",
+            "title": "Number of Students",
+            "format": ","}
+        ]
+      }
+    },
+    {
+      "data": {"url": "https://raw.githubusercontent.com/jjin0021/datavis2/main/data/aus_pub_uni.csv"},
+      "transform": [
+        {"filter": "datum.Year == 2021"},
+        {"filter": {"field": "Citizenship", "equal": "International"}},
+        {"filter": {"field": "Status", "equal": "Continuing"}},
+        {"filter": {"field": "Level", "equal": "Undergraduate"}},
+        {"filter": {"field": "Gender", "equal": "Female"}},
+        {"filter": {"field": "State_Short", "oneOf": ["VIC", "NSW"]}}
+      ],
+      "mark": {
+        "type": "text", 
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "text": {"field": "State_Short"}
+      }
+    },
+    {
+      "data": {"url": "https://raw.githubusercontent.com/jjin0021/datavis2/main/data/aus_pub_uni.csv"},
+      "transform": [
+        {"filter": "datum.Year == 2021"},
+        {"filter": {"field": "Citizenship", "equal": "International"}},
+        {"filter": {"field": "Status", "equal": "Continuing"}},
+        {"filter": {"field": "Level", "equal": "Undergraduate"}},
+        {"filter": {"field": "Gender", "equal": "Female"}},
+        {"filter": {"field": "State_Short", "oneOf": ["QLD"]}}
+      ],
+      "mark": {
+        "type": "text", 
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "dy": 30
+      },
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "text": {"field": "State_Short"}
+      }
+    },
+    {
+      "data": {"url": "https://raw.githubusercontent.com/jjin0021/datavis2/main/data/aus_pub_uni.csv"},
+      "transform": [
+        {"filter": "datum.Year == 2021"},
+        {"filter": {"field": "Citizenship", "equal": "International"}},
+        {"filter": {"field": "Status", "equal": "Continuing"}},
+        {"filter": {"field": "Level", "equal": "Undergraduate"}},
+        {"filter": {"field": "Gender", "equal": "Female"}},
+        {"filter": {"field": "State_Short", "oneOf": ["WA", "SA"]}}
+      ],
+      "mark": {
+        "type": "text", 
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "dy": 25
+      },
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "text": {"field": "State_Short"}
+      }
+    },
+    {
+      "data": {"url": "https://raw.githubusercontent.com/jjin0021/datavis2/main/data/aus_pub_uni.csv"},
+      "transform": [
+        {"filter": "datum.Year == 2021"},
+        {"filter": {"field": "Citizenship", "equal": "International"}},
+        {"filter": {"field": "Status", "equal": "Continuing"}},
+        {"filter": {"field": "Level", "equal": "Undergraduate"}},
+        {"filter": {"field": "Gender", "equal": "Female"}},
+        {"filter": {"field": "State_Short", "oneOf": ["NT", "ACT", "TAS"]}}
+      ],
+      "mark": {
+        "type": "text", 
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "dy": 16
+      },
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "text": {"field": "State_Short"}
+      }
+    }
+  ],
+  "params": [
+    {
+      "name": "Year",
+      "value": 2021,
+      "bind": {
+          "input": "range",
+          "min": 2017,
+          "max": 2021,
+          "step": 1,
+          "name": "Select Year:"
+      }
+    }
+  ]
+}

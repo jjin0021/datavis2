@@ -1,0 +1,107 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text": "Number of Students per State", "fontSize": 20, "subtitle": "by Citizenship and Level", "subtitleFontSize": 18},
+  "width": "container",
+  "height": 250,
+  "data": {"url": "https://raw.githubusercontent.com/jjin0021/datavis2/main/data/aus_pub_uni.csv"},
+  "transform": [
+    {"filter": "datum.Year == Year"},
+    {"filter": "Level_selection == null || datum.Level == Level_selection"}
+  ],
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "State_Short",
+          "sort": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"],
+          "axis": {"labelAngle": 0, "title": "State", "titleFontSize": 14}
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "Count",
+          "type": "quantitative",
+          "scale": {"domain": [0, 320000]},
+          "axis": {
+            "format": "s",
+            "title": "Number of Students",
+            "titleFontSize": 14
+          }
+        },
+        "xOffset": {"field": "Citizenship", "sort": "-y"},
+        "color": {
+          "field": "Citizenship",
+          "scale": {"domain": ["Domestic", "International"], "range": ["#35155d", "#b3541e"]},
+          "legend": {"orient": "none", "legendX": 425, "legendY": 5, "symbolSize": 200, "labelFontSize": 11, "titleFontSize": 12}
+        },
+        "opacity": {
+          "field": "Level",
+          "scale": {"domain": ["Postgraduate", "Undergraduate"], "range": [0.4, 0.9]},
+          "legend": {"orient": "none", "legendX": 425, "legendY": 63, "symbolSize": 200, "labelFontSize": 11, "titleFontSize": 12}
+        },
+        "tooltip": [
+          {"field": "State"},
+          {"field": "Year"},
+          {"field": "Citizenship"},
+          {"field": "Level"},
+          {"aggregate": "sum",
+            "field": "Count",
+            "type": "quantitative",
+            "title": "Number of Students",
+            "format": ","}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dx": 1,
+        "fontSize": 10,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {
+          "field": "State_Short",
+          "sort": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"]
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "Count",
+          "type": "quantitative",
+          "scale": {"domain": [0, 325000]}
+        },
+        "xOffset": {"field": "Citizenship", "sort": "-y"},
+        "text": {
+          "aggregate": "sum",
+          "field": "Count",
+          "type": "quantitative",
+          "format": ".3s"
+        }
+      }
+    }
+  ],
+  "params": [
+    {
+      "name": "Year",
+      "value": 2021,
+      "bind": {
+        "input": "range",
+        "min": 2017,
+        "max": 2021,
+        "step": 1,
+        "name": "Select Year:"
+      }
+    },
+    {
+      "name": "Level_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "Postgraduate", "Undergraduate"],
+        "labels": ["Show All", "Postgraduate", "Undergraduate"],
+        "name": "Select Status: "
+      }
+    }
+  ]
+}
