@@ -1,64 +1,17 @@
-body {
-    background-color: gray;;
-}
-
-h1 {
-	text-align: center;
-	font-family: 'Roboto';
-	color: white;
-}
-
-h2 {
-	text-align: center;
-	font-family: 'Roboto';
-	color: white;
-	font-size: 28px;
-	margin: 0px;
-}
-
-h3 {
-	text-align: center;
-	font-family: 'Roboto';
-	margin-top: 0px;
-	margin-bottom: 0px;
-	font-size: 16px;
-}
-
-h4 {
-	text-align: center;
-	font-family: 'Roboto';
-	margin: 0px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-p {
-	font-family: 'Roboto';
-	margin-top: 0;
-	margin-bottom: 0;
-	font-size: 14px;
-}
-
-.domestic-text {
-	color: #35155d;
-	font-weight: 1000;
-}
-
-.international-text {
-	color: #b3541e;
-	font-weight: 1000;
-}
-
-#right-align {
-	text-align: right;
-}
-
 .page {
     width: 800px;
     background-color: white;
     margin: auto;
     padding: 20px;
     padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+body {
+	background-image: url(../images/background.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	width: 100%;
 }
 
 .pure-g {
@@ -84,7 +37,7 @@ p {
 .commentary-box{
 	background-color: #e6e6e6;
 	padding: 5px;
-	margin-bottom: 22px;
+	margin-bottom: 7px;
 	margin-right: 10px;
 }
 
@@ -113,21 +66,21 @@ p {
 
 .annotation {
 	background-color: #969696;
-	margin: 10px;
+	margin: 5px;
 	padding: 10px;
 	margin-top: 10px;
 }
 
 .annotation-domestic {
-	background-color: #aea1be;
-	margin: 10px;
+	background-color: #9a8aae;
+	margin: 5px;
 	padding: 10px;
 	margin-top: 10px;
 }
 
 .annotation-international {
-	background-color: #e1bba5;
-	margin: 10px;
+	background-color: #d1a288;
+	margin: 5px;
 	padding: 10px;
 	margin-top: 10px;
 }
@@ -151,39 +104,3 @@ p {
 	margin-right: 10px;
 	margin-bottom: 10px;
 }
-
-.vis-container {
-    width: 100%;
-}
-
-.vega-bindings {
-	position: absolute;
-	top: 48px;
-	left: 50%;
-	transform: translate(-50%);
-}
-
-#symbol_map {
-	padding: 0px;
-}
-
-#line_chart {
-	padding: 0px;
-}
-
-#bar {
-	padding: 0px;
-}
-
-#donut_chart {
-	padding: 0px;
-}
-
-#diverging_bar {
-	padding: 0px;
-}
-
-#gender {
-	padding: 0px;
-}
-

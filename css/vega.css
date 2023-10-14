@@ -1,0 +1,30 @@
+.vis-container {
+    width: 100%;
+}
+
+.vega-bindings {
+	position: absolute;
+	top: 52px;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+#symbol_map {
+	padding: 0px;
+}
+
+#line_chart {
+	padding: 0px;
+}
+
+#bar {
+	padding: 0px;
+}
+
+#donut_chart {
+	padding: 0px;
+}
+
+#diverging_bar {
+	padding: 0px;
+}
