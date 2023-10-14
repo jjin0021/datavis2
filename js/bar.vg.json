@@ -15,7 +15,7 @@
         "x": {
           "field": "State_Short",
           "sort": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "ACT", "NT"],
-          "axis": {"labelAngle": 0, "title": "State", "titleFontSize": 14}
+          "axis": {"labelAngle": 0, "title": "State", "titleFontSize": 12}
         },
         "y": {
           "aggregate": "sum",
@@ -25,7 +25,7 @@
           "axis": {
             "format": "s",
             "title": "Number of Students",
-            "titleFontSize": 14
+            "titleFontSize": 12
           }
         },
         "xOffset": {"field": "Citizenship", "sort": "-y"},
@@ -36,7 +36,7 @@
         },
         "opacity": {
           "field": "Level",
-          "scale": {"domain": ["Postgraduate", "Undergraduate"], "range": [0.4, 0.9]},
+          "scale": {"domain": ["Postgraduate", "Undergraduate"], "range": [0.5, 1]},
           "legend": {"orient": "none", "legendX": 425, "legendY": 63, "symbolSize": 200, "labelFontSize": 11, "titleFontSize": 12}
         },
         "tooltip": [

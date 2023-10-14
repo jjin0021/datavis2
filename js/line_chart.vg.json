@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 250,
+  "height": 240,
   "title": {"text":"Number of Students over Time", "fontSize": 20, "subtitle": "by Citizenship and Level", "subtitleFontSize": 18},
   "data": {"url": "https://raw.githubusercontent.com/jjin0021/datavis2/main/data/aus_pub_uni.csv"},
   "transform": [
@@ -13,18 +13,19 @@
       "aggregate": [{
         "op": "sum",
         "field": "Count",
-        "as": "Total"
+        "as": "Number of Students"
       }],
       "groupby": ["Citizenship", "Level", "Year", "Citizenship_Level"]
     }
   ],
-  "encoding": {"x": {"field": "Year", "type": "ordinal", "axis": {"labelAngle": 0}}},
+  "encoding": {"x": {"field": "Year", "type": "ordinal", "axis": {"labelAngle": 0, "titleFontSize": 12}}},
   "layer": [
     {
       "encoding": {
         "y": {
-          "field": "Total", 
-          "type": "quantitative"
+          "field": "Number of Students", 
+          "type": "quantitative",
+          "axis": {"titleFontSize": 12}
         },
         "color": {
           "field": "Citizenship",
@@ -32,11 +33,14 @@
           "scale": {"domain": ["Domestic", "International"], "range": ["#35155d", "#b3541e"]},
           "legend": {"symbolType": "stroke", "symbolStrokeWidth": 3, "labelFontSize": 11, "titleFontSize": 12}
         },
-        "opacity": {"value": 0.9},
+        "opacity": {
+          "field": "Level",
+          "scale": {"domain": ["Postgraduate", "Undergraduate"], "range": [0.5, 1]}
+        },
         "strokeDash": {
           "field": "Level", 
           "type": "nominal",
-          "scale": {"domain": ["Postgraduate", "Undergraduate"], "range": [[3,3],[1,0]]},
+          "scale": {"domain": ["Postgraduate", "Undergraduate"], "range": [[4,4],[1,0]]},
           "legend": {"symbolType": "stroke", "symbolStrokeWidth": 3, "symbolStrokeColor": "black", "labelFontSize": 11, "titleFontSize": 12}
         }
       },
@@ -49,7 +53,7 @@
       "transform": [
         {
           "pivot": "Citizenship_Level",
-          "value": "Total",
+          "value": "Number of Students",
           "groupby": ["Year"]
         }
       ],
@@ -86,10 +90,10 @@
         {"filter": {"field": "Level", "equal": "Postgraduate"}},
         {"calculate": "['The number of International', 'students decreased after 2019.']", "as": "Annotation"}
       ],
-      "mark": {"type": "text", "dy": 15},
+      "mark": {"type": "text", "dy": 15, "fontSize": 11},
       "encoding": {
         "y": {
-          "field": "Total", 
+          "field": "Number of Students", 
           "type": "quantitative"
         },
         "text": {"field": "Annotation"}

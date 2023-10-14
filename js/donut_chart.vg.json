@@ -43,7 +43,7 @@
             "tooltip": [
               {"field": "Year"},
               {"field": "Gender"},
-              {"field": "Total", "format": ","}
+              {"field": "Total", "format": ",", "title": "Number of Students"}
             ]
           }
         },
@@ -116,7 +116,7 @@
             "tooltip": [
               {"field": "Year"},
               {"field": "Gender"},
-              {"field": "Total", "format": ","}
+              {"field": "Total", "format": ",", "title": "Number of Students"}
             ]
           }
         },
@@ -189,7 +189,7 @@
             "tooltip": [
               {"field": "Year"},
               {"field": "Gender"},
-              {"field": "Total", "format": ","}
+              {"field": "Total", "format": ",", "title": "Number of Students"}
             ]
           }
         },
@@ -262,7 +262,7 @@
             "tooltip": [
               {"field": "Year"},
               {"field": "Gender"},
-              {"field": "Total", "format": ","}
+              {"field": "Total", "format": ",", "title": "Number of Students"}
             ]
           }
         },
@@ -335,7 +335,7 @@
             "tooltip": [
               {"field": "Year"},
               {"field": "Gender"},
-              {"field": "Total", "format": ","}
+              {"field": "Total", "format": ",", "title": "Number of Students"}
             ]
           }
         },
