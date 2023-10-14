@@ -16,33 +16,38 @@
 
   <!-- CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  <link rel="stylesheet" type="text/css" href="css/text.css" media="all">
+  <link rel="stylesheet" type="text/css" href="css/vega.css" media="all">
   
   <title>FIT3179 Data Visualisation 2</title>
 
 </head>
 
 <body>
-
   <div class="page">
 
     <div class="title-box">
-      <h1>Comparing Domestic and International Students<br />
+      <h1>Comparing Domestic and International Students<br>
       at Australian Public Universities</h1>
     </div>
 
     <div class="pure-g">
       <div class = "pure-u-1-3">
           <div class="commentary-box">
-            <p>According to the QS World University Rankings, Australia is home to 6 of the top 50 universities in the world.
-              With The University of Melbourne, The University of New South Wales, The University of Sydney, 
-              Australian National University, Monash University, The University of Queensland all making the top 50.<br><br>
-              As such, Australia has attracted numerous International students throughout the years.</p>
+              <p>Australia has attracted numerous International students, due to it being home to 6 of the top 50 universities 
+                in the world. With The University of Melbourne, The University of New South Wales, The University of Sydney, 
+                Australian National University, Monash University, The University of Queensland all making the top 50.</p>
           </div>
-          <div class="commentary-box-bottom">
+          <div class="commentary-box">
             <p>This dashboard compares the number of <span class=domestic-text>Domestic</span> and <span class=international-text>International</span> students studying at Australian Public Universities
               across 2017-2020. In particular, exploring the distribution of students across each Australian State with consideration 
-              towards their Level and Gender. <br><br>Whereby, Level in this scenario refers to whether the student is studying a 
+              towards their Level and Gender. <br><br>Whereby, Level in this visualisation refers to whether the student is studying a 
               Postgraduate or Undergraduate degree, and Gender is limited to Female and Males.</p>
+          </div>
+          <div class="commentary-box-bottom">
+            <p>The map on the right shows the total number of students at Australian Universities, and we can note that Victoria 
+              and New South Wales saw the largest growth in the 5 year period of 2017-2021.
+            </p>
           </div>
         </div>
 
@@ -67,19 +72,27 @@
         </div>
         <div class="pure-u-1-4">
           <div class="annotation-domestic">
-            <h4>Domestic</h4>
-            <p>- The vast majority of students study an Undergraduate degree.<br>
-            - The number of students has consistently increased over time.</p>
+            <h4>Domestic Students</h4>
+            <p>The vast majority of domestic students study an Undergraduate degree, and
+            the number of students has consistently increased over time.</p>
           </div>
           <div class="annotation-international">
-            <h4>International</h4>
-            <p>- There is an approx. 50/50 split between Postgraduate and Undergraduate students.<br>
-            - The number of students have decreased since 2019, likely due to Covid-19.</p>
+            <h4>International Students</h4>
+            <p>Approximately half of the international students study an Undergraduate degree,
+              moreover the number of international students has decreased since 2019, likely due to Covid-19.</p>
           </div>
         </div>
         <div class="pure-u-1-4">
-          <div class="box">
-            <p>Commentary placeholder</p>
+          <div class="annotation">
+            <h4>Overall</h4>
+            <p>Although New South Wales has the highest number of <span class="domestic-text">domestic</span> students, 
+              Victoria has the highest number of <span class="international-text">international</span> students.
+              Similarly, Tasmania has more <span class="domestic-text">domestic</span> students but less 
+              <span class="international-text">international</span> students than Australian Capital Territory.<br><br>
+              Further, New South Wales, Victoria, South Australia and Australian Capital Territory had more
+              <span class="international-text">international</span> postgraduate students than 
+              <span class="domestic-text">domestic</span> ones in 2019.
+            </p>
           </div>
         </div>
         <div class="pure-u-3-4">
@@ -89,7 +102,6 @@
         </div>
       </div>
     </div>
-
     <div class="heading-box">
       <h2>Number of Female and Male Students</h2>
     </div>
