@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {"text":"Percentage of Students Over Time", "fontSize": 20, "subtitle": "by Gender", "subtitleFontSize": 18, "anchor": "middle"},
+  "title": {"text":"Percentage of Students Over Time", "fontSize": 20, "subtitle": "by Citizenship and Gender", "subtitleFontSize": 18, "anchor": "middle"},
   "data": {"url": "https://raw.githubusercontent.com/jjin0021/datavis2/main/data/aus_pub_uni.csv"},
   "spacing": 9,
   "transform": [
